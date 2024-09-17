@@ -18,7 +18,7 @@ The workspace contains two folders by default, where:
 ```
 git remote add upstream https://github.com/davecheng-tech/ICS4U-Notes-Template
 ```
-
+git
 ### Getting Updates from the parent fork
 When changes are made to the parent fork (i.e new notes), you will need to pull the changes to your fork/repository
 ```
