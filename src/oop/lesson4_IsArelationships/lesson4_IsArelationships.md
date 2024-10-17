@@ -1,6 +1,6 @@
 # Is-A Relationships - Inheritance
 
-One of the major tenants of object-oriented programming is *resuabiity*, this could mean repeatedly making use of existing tested code, it also means taking existing code and extending its functionality to make it more useful.
+One of the major tenets of object-oriented programming is *resuabiity*, this could mean repeatedly making use of existing tested code, it also means taking existing code and extending its functionality to make it more useful.
 
 What if there is a class that has loads of useful functionality in it but is not quite what we want? We can inherit from the class and then further refine or add to how it works and what it does.
 
