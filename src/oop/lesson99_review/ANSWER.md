@@ -24,6 +24,49 @@ Bicycle (inherits Vehicle)
 **Solution and Explanation:**  
 The `fuelType` attribute doesn’t apply to `Bicycle`, which causes irrelevant properties to exist in some subclasses. A better approach could be to split `Vehicle` into `PoweredVehicle` (with `fuelType`) and `NonPoweredVehicle` (without `fuelType`). `Car` and `Motorcycle` would inherit from `PoweredVehicle`, while `Bicycle` would inherit from `NonPoweredVehicle`.
 
+```plaintext
+PoweredVehicle
+├── make: String
+├── model: String
+├── mileage: double
+├── fuelType: String
+
+Car (inherits PoweredVehicle)
+├── seatingCapacity: int
+
+Motorcycle (inherits PoweredVehicle)
+└── hasSidecar: boolean
+
+NonPoweredVehicle
+├── make: String
+├── model: String
+├── mileage: double
+
+Bicycle (inherits NonPoweredVehicle)
+└── gearCount: int
+```
+
+Or, another possible implementation:
+
+```plaintext
+Vehicle
+├── make: String
+├── model: String
+├── mileage: double
+
+PoweredVehicle (inherits Vehicle)
+└── fuelType: String
+
+Car (inherits PoweredVehicle)
+└── seatingCapacity: int
+
+Motorcycle (inherits PoweredVehicle)
+└── hasSidecar: boolean
+
+Bicycle (inherits Vehicle)
+└── gearCount: int
+```
+
 <br><br>
 
 ## 2. E-Commerce Product Catalog - Violation of Single Responsibility Principle
@@ -38,13 +81,29 @@ Product
 ├── price: double
 ├── inventory: int
 ├── calculateDiscount(): double
-├── updateInventory(): void
+└── updateInventory(): void
 ```
 
 **Solution and Explanation:**  
 This design is trying to do too much with the `Product` class. (In OOP design, one of the foundational rules is called the Single Responsibility Principle or SRP.) It is better to split responsibilities into separate classes: `Product` for product details, `DiscountCalculator` for discount-related operations, and `InventoryManager` for inventory updates. This reduces complexity and makes each class easier to maintain and extend.
 
+```plaintext
+Product
+├── name: String
+├── price: double
+├── inventory: int
+├── setPrice(double): void
+└── getPrice(): double
+
+DiscountCalculator
+└── applyDiscount(double, Product): void
+
+InventoryManager
+└── updateInventory(int, Product): void
+```
+
 <br><br>
+
 
 ## 3. Employee Management System - Redundant Class Structure
 
@@ -75,6 +134,23 @@ Intern
 **Solution and Explanation:**  
 The current design duplicates common properties and methods. Instead, an `Employee` base class could be created with shared attributes (`name`, `ID`, `email`) and methods (`calculateSalary()`). `FullTimeEmployee`, `PartTimeEmployee`, and `Intern` would inherit from `Employee`, allowing specialization where needed.
 
+```plaintext
+Employee
+├── name: String
+├── ID: int
+├── email: String
+├── calculateSalary(): double
+
+FullTimeEmployee (inherits Employee)
+└── specializedMethod(): void
+
+PartTimeEmployee (inherits Employee)
+└── specializedMethod(): void
+
+Intern
+└── specializedMethod(): void
+```
+
 <br><br>
 
 ## 4. Online Learning Platform - Poor Use of Inheritance and Composition
@@ -100,6 +176,13 @@ Quiz (inherits CourseMaterial)
 **Solution and Explanation:**  
 Since `Video`, `TextDocument`, and `Quiz` only differ in content type but have identical structures, a single `CourseMaterial` class with a `type` attribute (e.g., "video", "text", "quiz") would be more efficient. This design reduces the need for multiple subclasses and keeps the codebase simpler.
 
+
+```plaintext
+CourseMaterial
+├── type: String
+└── content: String
+```
+
 <br><br>
 
 ## 5. Banking System - Poor Encapsulation
@@ -118,5 +201,13 @@ BankAccount
 
 **Solution and Explanation:**  
 Exposing `balance` as a public field violates encapsulation and allows unauthorized modification. A better approach would be to make `balance` private and access it through `getBalance()`. The `withdraw` and `deposit` methods should include validation checks to prevent invalid transactions (e.g., withdrawing more than the available balance). This design ensures that data is accessed safely and only modified through controlled methods.
+
+```plaintext
+BankAccount
+├── accountID: int
+├── private balance: double
+├── withdraw(amount: double): void
+└── deposit(amount: double): void
+```
 
 <br><br>
