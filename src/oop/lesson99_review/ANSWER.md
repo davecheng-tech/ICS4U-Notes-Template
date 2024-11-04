@@ -149,7 +149,7 @@ FullTimeEmployee (inherits Employee)
 PartTimeEmployee (inherits Employee)
 └── specializedMethod(): void
 
-Intern
+Intern (inherits Employee)
 └── specializedMethod(): void
 ```
 
