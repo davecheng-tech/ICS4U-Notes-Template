@@ -98,10 +98,10 @@ Product
 └── getPrice(): double
 
 DiscountCalculator
-└── applyDiscount(double, Product): void
+└── applyDiscount(double, Product): void (static method)
 
 InventoryManager
-└── updateInventory(int, Product): void
+└── updateInventory(int, Product): void (static method)
 ```
 
 <br><br>
