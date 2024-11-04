@@ -92,6 +92,8 @@ Product
 ├── name: String
 ├── price: double
 ├── inventory: int
+├── setInventory(int): void
+├── getInventory(): int
 ├── setPrice(double): void
 └── getPrice(): double
 
