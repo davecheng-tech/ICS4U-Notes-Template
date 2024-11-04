@@ -31,7 +31,7 @@ Bicycle (inherits Vehicle)
 **Question:**  
 What is the issue with having `fuelType` in the `Vehicle` class? How could you redesign the hierarchy to address this issue?
 
----
+<br><br>
 
 ## 2. E-Commerce Product Catalog
 
@@ -50,6 +50,8 @@ Product
 
 **Question:**  
 Identify the design issue in having `Product` manage both inventory and discount calculations. How would you improve this design?
+
+<br><br>
 
 ## 3. Employee Management System
 
@@ -80,6 +82,8 @@ Intern
 **Question:**  
 Identify the redundancy in the current design and explain how it could be improved to avoid duplication.
 
+<br><br>
+
 ## 4. Online Learning Platform
 
 **Scenario and UML:**
@@ -100,8 +104,10 @@ Quiz (inherits CourseMaterial)
 └── content: String
 ```
 
-**Question for Students:**  
+**Question:**  
 Explain the choice of using `Video`, `TextDocument`, and `Quiz` as subclasses of `CourseMaterial`. How could this design be simplified?
+
+<br><br>
 
 ## 5. Banking System
 
@@ -117,7 +123,7 @@ BankAccount
 └── deposit(amount: double): void
 ```
 
-**Question for Students:**  
+**Question:**  
 What’s wrong with exposing the `balance` field directly and allowing direct modification? How would you redesign this to ensure better encapsulation and data integrity?
 
 <br><br>
