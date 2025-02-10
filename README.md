@@ -1,5 +1,5 @@
 
-# St. Augustine CHS - ICS4U1a - 2024/2025
+# St. Augustine CHS - ICS4U1 - 2024/2025
 Notes and examples for ICS4U
 
 
