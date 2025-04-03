@@ -35,8 +35,8 @@ Compare the `Student` and `Teacher` classes from previous lesson.
 
 #### `extends`
 Inheritance in java is achieved with the use of the `extend` keyword.  Notice the [`Student`](./Student.java#L4) and [`Teacher`](./Teacher.java#L4) class definition statements.  By including `extend`, the `Student` and `Teacher` classes become child classes to `Person`, *inheriting* all its properties and methods.
-```
-public class Student extends Person{
+```java
+public class Student extends Person {
   ...
 ```
 
@@ -45,12 +45,11 @@ public class Student extends Person{
 * When we extend the definition of a class through inheritance (i.e Person extended to Student) we don't want to code the instructions in the parents constructor all over again (i.e `getFirstName()` and `getLastName()`).
 * to eliminate redundancy, we can make a [call to the `super()`](./Student.java#L18) method, which allows you to trigger a parent constructor (Person) from a child class (Student)
 parameters in the super() call should match the parameters of a parent constructor.
-```
- public Student(String fname, String lname)
- {
-   super(fname, lname);
-   this.gradeAvg = 0.0; 
-   totalStudents++;  // increase the student count
+```java
+public Student(String fname, String lname) {
+    super(fname, lname);
+    this.gradeAvg = 0.0;
+    totalStudents++; // increase the student count
 }
  ```
 
@@ -77,35 +76,29 @@ parameters in the super() call should match the parameters of a parent construct
   ### Example: Square Is A Rectangle
   
   #### Rectangle.java
-```
-  public class Rectangle
-{
+```java
+public class Rectangle {
     private int width;
     private int height;
-    
-    public Rectangle(int rectWidth, int rectHeight)
-    {
+
+    public Rectangle(int rectWidth, int rectHeight) {
         width = rectWidth;
         height = rectHeight;
     }
-    
-    public int getArea()
-    {
+
+    public int getArea() {
         return width * height;
     }
-    
-    public int getHeight()
-    {
+
+    public int getHeight() {
         return height;
     }
-    
-    public int getWidth()
-    {
+
+    public int getWidth() {
         return width;
     }
-    
-    public String toString()
-    {
+
+    public String toString() {
         return "Rectangle with width: " + width + " and height: " + height;
     }
 }
@@ -113,25 +106,20 @@ parameters in the super() call should match the parameters of a parent construct
   
 #### Square.java
   
-```
-  public class Square extends Rectangle
-{
-    public Square(int sideLength)
-    {
+```java
+public class Square extends Rectangle {
+    public Square(int sideLength) {
         super(sideLength, sideLength);
     }
-    
-    public int getSideLength()
-    {
+
+    public int getSideLength() {
         return super.getHeight();
     }
-    
+
     // Override toString in the subclass
-    public String toString()
-    {
+    public String toString() {
         return "Square with side length: " + getHeight();
     }
-    
 }
 ```
 
